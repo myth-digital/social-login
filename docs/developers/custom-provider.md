@@ -72,7 +72,7 @@ class MyProvider extends OAuthProvider
 
 This is the minimum amount of implementation required for a typical provider.
 
-Social Login providers are built around the [Auth](https://github.com/verbb/auth) which in turn in built around [league/oauth2-client](https://github.com/thephpleague/oauth2-client). You can see that the `getOAuthProviderClass()` must return a `League\OAuth2\Client\Provider\AbstractProvider` class.
+Social Login providers are built around the [Auth](https://github.com/verbb/auth) which in turn is built around [league/oauth2-client](https://github.com/thephpleague/oauth2-client). You can see that the `getOAuthProviderClass()` must return a `League\OAuth2\Client\Provider\AbstractProvider` class.
 
 ### Additional Settings
 You can of course extend and create as many additional settings as you like. The Apple provider is a good example of this, where we're required to send more settings than a typical OAuth2 request.
