@@ -41,7 +41,7 @@ class Salesforce extends OAuthProvider
         return "https://{$prefix}.salesforce.com";
     }
 
-    public function getBaseApiUrl(?Token $token): ?string
+    public function getBaseApiUrl(): ?string
     {
         $url = $this->getApiDomain();
 
