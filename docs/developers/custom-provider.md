@@ -15,10 +15,69 @@ Event::on(Providers::class, Providers::EVENT_REGISTER_PROVIDER_TYPES, function(R
 ```
 
 ## Examples
-There are two methods to creating a custom provider, and which one you choose depends on your needs - whether simple or complex.
+There are 3 methods to creating a custom provider, and which one you choose depends on your needs - whether simple or complex.
+
+### Auth Provider
+Social Login makes use of the [Auth](https://github.com/verbb/auth) module to handle OAuth authorization and token handling. While Social Login providers have their own logic, we build on top of an [Auth](https://github.com/verbb/auth) provider. These in turn build off a [league/oauth2-client](https://github.com/thephpleague/oauth2-client) provider.
+
+To create a custom provider, you must specify a [Auth](https://github.com/verbb/auth)-compatible provider. Have a look at the list of providers in the [Auth](https://github.com/verbb/auth) module, and if one is supported there already, you should use that.
+
+
+```php
+<?php
+namespace modules\sitemodule;
+
+use Craft;
+use verbb\sociallogin\base\OAuthProvider;
+
+use verbb\auth\providers\Facebook as FacebookProvider;
+
+class Example extends OAuthProvider
+{
+    // Static Methods
+    // =========================================================================
+
+    public static function displayName(): string
+    {
+        return 'Example Provider';
+    }
+
+    public static function getOAuthProviderClass(): string
+    {
+        return FacebookProvider::class;
+    }
+
+
+    // Properties
+    // =========================================================================
+
+    public static string $handle = 'example';
+
+
+    // Public Methods
+    // =========================================================================
+
+    public function getPrimaryColor(): ?string
+    {
+        return '#000000';
+    }
+
+    public function getIcon(): ?string
+    {
+        return '<svg>...</svg>';
+    }
+
+    public function getSettingsHtml(): ?string
+    {
+        return Craft::$app->getView()->renderTemplate('social-module/example/settings', [
+            'provider' => $this,
+        ]);
+    }
+}
+```
 
 ### Generic Provider
-The simplest way to create a custom provider is to make use of the [Auth](https://github.com/verbb/auth) module's `GenericProvider` class. This abstracts all things OAuth away from your class, and you just need to provide some basic settings like the authorization and access token endpoint URLs, any scopes, and a more.
+As mentioned, you're required to provide a [Auth](https://github.com/verbb/auth) provider with your Social Login provider class. If Auth doesn't have a provider for your needs, you can use the `GenericProvider` class. This abstracts all things OAuth away from your class, and you just need to provide some basic settings like the authorization and access token endpoint URLs, any scopes, and more.
 
 Create the following class to house your Provider logic.
 
