@@ -59,7 +59,9 @@ class Install extends Migration
 
     public function dropForeignKeys(): void
     {
-        MigrationHelper::dropAllForeignKeysOnTable('{{%social_login_connections}}', $this);
+        if ($this->db->tableExists('{{%social_login_connections}}')) {
+            MigrationHelper::dropAllForeignKeysOnTable('{{%social_login_connections}}', $this);
+        }
     }
 
 }
