@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.12 - 2024-04-04
+
+### Fixed
+- Fix an error when uninstalling the plugin.
+- Fix Salesforce provider.
+
 ## 1.0.11 - 2024-03-26
 
 ### Added
