@@ -24,6 +24,7 @@ return [
 - `enableCpLogin` - Whether to enable social login for the control panel.
 - `cpLoginTemplate` - Provide a custom template to render the social login icons for the control panel. Leave empty to use the default.
 - `enableRegistration` - Whether new users should be created if they don‘t already exist in Craft.
+- `forceActivate` - Whether new users should be automatically activated without verifying their email (despite your User settings).
 - `userGroups` - Choose which user groups to assign new users to.
 - `populateProfile` - Whether new users have their profile populated from providers. This can be fine-tuned with field mapping for each provider.
 - `providers` - A collection of settings for a provider.
