@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.13 - 2024-04-05
+
+### Added
+- Add improved session-handling for authorization and callback methods, to improve failed sessions in some cases.
+
 ## 1.0.12 - 2024-04-04
 
 ### Fixed
