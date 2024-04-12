@@ -6,6 +6,32 @@
 - Now requires PHP `8.2.0+`.
 - Now requires Craft `5.0.0-beta.1+`.
 
+## 1.0.13 - 2024-04-05
+
+### Added
+- Add improved session-handling for authorization and callback methods, to improve failed sessions in some cases.
+
+## 1.0.12 - 2024-04-04
+
+### Fixed
+- Fix an error when uninstalling the plugin.
+- Fix Salesforce provider.
+
+## 1.0.11 - 2024-03-26
+
+### Added
+- Add Salesforce provider.
+- Add logging when a provider cannot be saved.
+
+### Fixed
+- Fix Apple provider not saving.
+
+## 1.0.10 - 2024-03-22
+
+### Added
+- Add IdentityServer4 provider.
+- Now requires Craft `5.0.0-beta.1+`.
+
 ## 1.0.9 - 2023-12-08
 
 ### Added
