@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0-beta.2 - 2024-04-12
+
+### Added
+- Add improved session-handling for authorization and callback methods, to improve failed sessions in some cases.
+- Add IdentityServer4 provider.
+- Add Salesforce provider.
+- Add logging when a provider cannot be saved.
+
+### Fixed
+- Fix an error when uninstalling the plugin.
+- Fix Salesforce provider.
+- Fix Apple provider not saving.
+
 ## 2.0.0-beta.1 - 2024-03-04
 
 ### Changed
