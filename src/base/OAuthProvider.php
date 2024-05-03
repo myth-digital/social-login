@@ -60,7 +60,7 @@ abstract class OAuthProvider extends Provider implements OAuthProviderInterface
         if ($generalConfig->headlessMode || !$generalConfig->cpTrigger) {
             // Don't use the `cpUrl` or `actionUrl` helpers, which include the `cpTrigger`, and that won't work when
             // trying to login via the CP. Instead, use the action endpoint, but manually constructed.
-            return UrlHelper::baseCpUrl() . '/' . $generalConfig->actionTrigger . '/social-login/auth/callback';
+            return rtrim(UrlHelper::baseCpUrl(), '/') . '/' . rtrim($generalConfig->actionTrigger, '/') . '/social-login/auth/callback';
         }
 
         return UrlHelper::siteUrl('social-login/auth/callback', null, null, $siteId);
