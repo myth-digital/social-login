@@ -5,6 +5,7 @@ use verbb\sociallogin\base\OAuthProvider;
 
 use craft\helpers\App;
 
+use verbb\auth\models\Token;
 use verbb\auth\providers\Salesforce as SalesforceProvider;
 
 class Salesforce extends OAuthProvider
@@ -41,7 +42,7 @@ class Salesforce extends OAuthProvider
         return "https://{$prefix}.salesforce.com";
     }
 
-    public function getBaseApiUrl(): ?string
+    public function getBaseApiUrl(?Token $token): ?string
     {
         $url = $this->getApiDomain();
 
