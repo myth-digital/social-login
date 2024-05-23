@@ -22,6 +22,14 @@
 - Fix Salesforce provider.
 - Fix Apple provider not saving.
 
+## 1.0.14 - 2024-04-29
+
+### Added
+- Add support for `headlessMode` redirect URIs.
+
+### Changed
+- Update English translations.
+
 ## 1.0.13 - 2024-04-05
 
 ### Added
@@ -46,7 +54,6 @@
 
 ### Added
 - Add IdentityServer4 provider.
-- Now requires Craft `5.0.0+`.
 
 ## 1.0.9 - 2023-12-08
 
