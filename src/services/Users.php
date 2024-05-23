@@ -138,6 +138,8 @@ class Users extends Component
                 $this->_syncUserProfile($provider, $user, $userProfile);
             }
 
+            Craft::$app->getElements()->saveElement($user);
+
             return $user;
         }
 
