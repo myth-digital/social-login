@@ -135,10 +135,9 @@ class Users extends Component
         if ($user) {
             // Check if the User profile should be remapped
             if ($settings->populateProfile && $settings->syncProfile) {
-                $this->_syncUserProfile($provider, $user, $userProfile);
+                $user = $this->_syncUserProfile($provider, $user, $userProfile);
+                Craft::$app->getElements()->saveElement($user);
             }
-
-            Craft::$app->getElements()->saveElement($user);
 
             return $user;
         }
@@ -222,13 +221,13 @@ class Users extends Component
         $user->email = $userProfile->email;
 
         if ($settings->populateProfile) {
-            $this->_syncUserProfile($provider, $user, $userProfile);
+            $user = $this->_syncUserProfile($provider, $user, $userProfile);
         }
 
         return $user;
     }
 
-    private function _syncUserProfile(Provider $provider, User $user, UserProfile $userProfile) {
+    private function _syncUserProfile(Provider $provider, User $user, UserProfile $userProfile): User {
         $userFields = $provider->getCraftUserFields();
 
         foreach (array_filter($provider->fieldMapping) as $attribute => $profile) {
