@@ -22,6 +22,19 @@
 - Fix Salesforce provider.
 - Fix Apple provider not saving.
 
+## 1.0.15 - 2024-05-29
+
+### Added
+- Added a new Plugin setting for syncing user profiles for existing accounts (thanks @SwiseWeb).
+
+### Changed
+- Update English translations.
+
+### Fixed
+- Fix URL normalization for headless redirect URI.
+- Fix an error with `headlessMode` and CP-based logins.
+- Fix LinkedIn provider and the v2 API.
+
 ## 1.0.14 - 2024-04-29
 
 ### Added
