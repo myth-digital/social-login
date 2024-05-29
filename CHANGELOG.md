@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.0.2 - 2024-05-29
+
+### Added
+- Added a new Plugin setting for syncing user profiles for existing accounts (thanks @SwiseWeb).
+- Add the ability to set `data` for a login request, where users might want to store extra information.
+
+### Changed
+- Update English translations.
+
+### Fixed
+- Fix URL normalization for headless redirect URI.
+- Fix an error with `headlessMode` and CP-based logins.
+- Fix LinkedIn provider and the v2 API.
+- Fix an error when using “Name” as a value for matching an existing user. This is now “Full Name”.
+- Fix control panel login not working correctly.
+
 ## 2.0.1 - 2024-05-14
 
 ### Fixed
