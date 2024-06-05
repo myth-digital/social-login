@@ -227,7 +227,8 @@ class Users extends Component
         return $user;
     }
 
-    private function _syncUserProfile(Provider $provider, User $user, UserProfile $userProfile): User {
+    private function _syncUserProfile(Provider $provider, User $user, UserProfile $userProfile): User
+    {
         $userFields = $provider->getCraftUserFields();
 
         foreach (array_filter($provider->fieldMapping) as $attribute => $profile) {
