@@ -52,8 +52,11 @@ class SocialLogin extends Plugin
             $this->_registerSiteRoutes();
         }
 
-        // Check to register the plugin for CP login
-        $this->getService()->renderCpLogin();
+        // Defer most setup tasks until Craft is fully initialized:
+        Craft::$app->onInit(function() {
+            // Check to register the plugin for CP login
+            $this->getService()->renderCpLogin();
+        });
     }
 
     public function getSettingsResponse(): mixed
