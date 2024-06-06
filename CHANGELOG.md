@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+### Fixed
+- Fix race conditions with pluign intialisation.
+
 ## 1.0.15 - 2024-05-29
 
 ### Added
