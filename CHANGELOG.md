@@ -2,8 +2,11 @@
 
 ## Unreleased
 
+### Changed
+- Now requires Craft 4.3.5+.
+
 ### Fixed
-- Fix race conditions with pluign intialisation.
+- Fix race conditions with plugin initialization. (thanks @nfourtythree).
 
 ## 1.0.15 - 2024-05-29
 
