@@ -18,6 +18,7 @@ class Settings extends Model
     public bool $populateProfile = true;
     public bool $syncProfile = true;
     public bool $forceActivate = true;
+    public bool $sendActivationEmail = true;
 
     public array $providers = [];
 
