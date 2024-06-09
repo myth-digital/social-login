@@ -203,22 +203,7 @@ class Users extends Component
         }
 
         if ($settings->sendActivationEmail) {
-            $isNewUser = !$user->id;
-
-            // Temporarily set the unverified email on the User so the verification email goes to the right place
-            $originalEmail = $user->email;
-            $user->email = $user->unverifiedEmail;
-
-            if ($isNewUser) {
-                // Send the activation email
-                Craft::$app->getUsers()->sendActivationEmail($user);
-            } else {
-                // Send the standard verification email
-                Craft::$app->getUsers()->sendNewEmailVerifyEmail($user);
-            }
-
-            // Put the original email back into place
-            $user->email = $originalEmail;
+            Craft::$app->getUsers()->sendActivationEmail($user);
         }
 
         // Trigger an `afterRegister` event
