@@ -202,6 +202,10 @@ class Users extends Component
             Craft::$app->getUsers()->assignUserToGroups($user->id, $userGroupIds);
         }
 
+        if ($settings->sendActivationEmail) {
+            Craft::$app->getUsers()->sendActivationEmail($user);
+        }
+
         // Trigger an `afterRegister` event
         $this->trigger(self::EVENT_AFTER_REGISTER, new UserEvent([
             'user' => $user,
@@ -227,7 +231,8 @@ class Users extends Component
         return $user;
     }
 
-    private function _syncUserProfile(Provider $provider, User $user, UserProfile $userProfile): User {
+    private function _syncUserProfile(Provider $provider, User $user, UserProfile $userProfile): User
+    {
         $userFields = $provider->getCraftUserFields();
 
         foreach (array_filter($provider->fieldMapping) as $attribute => $profile) {
