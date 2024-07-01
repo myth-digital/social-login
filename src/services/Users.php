@@ -19,6 +19,7 @@ use Throwable;
 use verbb\auth\helpers\Session;
 use verbb\auth\models\Token;
 use verbb\auth\models\UserProfile;
+use verbb\sociallogin\events\MatchUserEvent;
 
 class Users extends Component
 {
@@ -29,6 +30,7 @@ class Users extends Component
     public const EVENT_AFTER_LOGIN = 'afterLogin';
     public const EVENT_BEFORE_REGISTER = 'beforeRegister';
     public const EVENT_AFTER_REGISTER = 'afterRegister';
+    public const EVENT_MATCH_USER = 'matchUser';
 
 
     // Public Methods
@@ -291,7 +293,20 @@ class Users extends Component
         // Find a matching user
         $matchUserDestination = str_replace('field:', '', $matchUserDestination);
 
-        return User::find()->$matchUserDestination($value)->one();
+        // Either find directly or allow an event to handle matching
+
+        $event = new MatchUserEvent([
+            'matchUserSource' => $matchUserSource,
+            'matchUserDestination' => $matchUserDestination,
+            'userProfile' => $userProfile,
+            'provider' => $provider
+        ]);
+
+        $this->trigger(self::EVENT_MATCH_USER, $event);        
+
+        $user = $event->user ?? User::find()->$matchUserDestination($value)->one();
+
+        return $user;
     }    
 
     private function _getFieldMappingValue(User $user, UserField $userField, mixed $providerValue): ?string
