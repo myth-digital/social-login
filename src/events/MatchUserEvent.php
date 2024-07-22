@@ -13,9 +13,9 @@ class MatchUserEvent extends CancelableEvent
     // Properties
     // =========================================================================
 
-    public string $matchUserSource = null;
+    public ?string $matchUserSource = null;
 
-    public string $matchUserDestination = null;
+    public ?string $matchUserDestination = null;
 
     public ?UserProfile $userProfile = null;
     public ?Provider $provider = null;
